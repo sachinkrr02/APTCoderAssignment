@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Todo 2022 w/Localstorage</title>
+  </head>
+  <body>
+    <div id="app" onload="askName()"></div>
+    <script type="module" src="/src/main.js"></script>
+    <script>
+      function askName() {
+    let username = sessionStorage.getItem('username');
+
+    if (username === null) {
+        username = prompt("To make your time on this website better, please enter your name.");
+    }
+
+    if (username != null) {
+        document.getElementById("userpara").innerHTML = "Hello, " + username;
+        sessionStorage.setItem('username', username);
+    } else {
+        document.getElementById("noUser").innerHTML = "Welcome, Stranger!";
+    }
+}
+    </script>
+  </body>
+</html>
